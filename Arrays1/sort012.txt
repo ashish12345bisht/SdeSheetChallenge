@@ -18,5 +18,11 @@ void sort012(int *arr, int n)
             high--;
         }
     }
-    
 }
+
+//Dutch National Flag Algorithm
+
+//put high to last index and low and mid to 0th index
+//if arr[mid]==0, swap low and mid,...  low++ and mid++
+//if arr[mid]==1, mid++
+//if arr[mid]==2, swap mid and high,... and high--

@@ -35,3 +35,18 @@ vector<int> nextPermutation(vector<int> &permutation, int n)
     
     return permutation;
 }
+
+//next permutation
+
+step1: traversing from behind find the index(ind1) which is smaller than its next index(num[i]<num[i+i])
+step2: traversing from back find index value for which num[i]>num[ind1].. let it be ind2
+step3: swap ind1 and ind2 positions in the array
+step4: reverse all from (ind1+1)th position to the last
+
+edge case:when you dont find any suitable ind1 from step 1 .. in that case 
+just return the reversed array
+
+//through stl function
+do {
+        cout << arr[0] << " " << arr[1] << " " << arr[2] << "\n";
+    } while (next_permutation(arr, arr + 3));

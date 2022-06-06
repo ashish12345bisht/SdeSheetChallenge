@@ -10,3 +10,12 @@ long long maxSubarraySum(int arr[], int n)
     }
     return maxSum<0?0:maxSum;
 }
+//sum is to calculate the sum and maxSum is to store the answer
+which is the largest sum of of subarray
+
+just add all numbers of array to sum and is sum get negative put sum=0
+maxSum=maximum sum achieved throughout the iteration
+
+this is kadane's algorithm to find the maximum sum of subarray
+
+the last step is done in case there is are all negative numbers in the array
