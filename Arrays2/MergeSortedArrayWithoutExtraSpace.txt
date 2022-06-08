@@ -1,0 +1,18 @@
+#include <bits/stdc++.h> 
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
+	int l2=arr2.size();
+    int l1=arr1.size();
+    int i=m;
+    for(int i=0;i<l2;i++){
+        arr1.pop_back();
+    }
+    for(int i=0;i<l2;i++){
+        arr1.push_back(arr2[i]);
+    }
+    sort(arr1.begin(),arr1.end());
+    return arr1;
+}
+
+//remove 0 from the last of arr1
+//add all elements of from arr2 to arr1
+//sort arr1
