@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+int findDuplicate(vector<int> &arr, int n){
+	// Write your code here.
+    sort(arr.begin(),arr.end());
+    int i=0;
+    while(i<n-1){
+        if(arr[i]==arr[i+1]){
+            return arr[i];
+        }
+        i++;
+    }
+    return 0;
+}
+
+
+//sort the array and then find the number comming twice (consecutive)
