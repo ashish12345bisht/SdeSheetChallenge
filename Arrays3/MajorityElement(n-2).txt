@@ -1,0 +1,31 @@
+#include <bits/stdc++.h> 
+int findMajorityElement(int arr[], int n) {
+    map<int,int> m;
+    for(int i =0;i<n;i++){
+        if(m.count(arr[i])){
+            m[arr[i]]++;
+        }
+        else{
+            m[arr[i]]=1;
+        }
+    }
+    int maxV=INT_MIN;
+    int ans=-1;
+    for(auto i:m){
+        if(i.second>maxV)
+        {
+            maxV=i.second;
+            ans=i.first;
+        }
+    }
+    if(maxV>(n/2)){
+        return ans;
+    }
+    else{
+        return -1;
+    }
+    // Write your code here.
+}
+
+//save all occurences in map or array and find the maximum one
+//if max is greater than n/2 return its value or return -1
