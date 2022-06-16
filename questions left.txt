@@ -1,0 +1,2 @@
+1. inversion of array (merge sort) - code not working on codestudio
+2. modular exponentiation - leetcode done coding ninjas left
