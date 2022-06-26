@@ -1,0 +1,33 @@
+#include <bits/stdc++.h> 
+
+int LongestSubsetWithZeroSum(vector < int > arr) {
+    map<int,int> m;
+    int maxA=0;
+    int sum=0;
+    for(int i=0;i<arr.size();i++){
+        sum+=arr[i];
+        if(sum==0){
+            maxA=max(maxA,i-m[sum]+1);
+        }
+        else{
+            if(m.count(sum)){
+                maxA=max(maxA,i-m[sum]);
+            }
+            else{
+                m[sum]=i;
+            }
+        }
+    }
+    return maxA;
+}
+
+// take a map
+// find current in sum every interation
+// if(sum==0)
+// else {
+//	if map has sum take cur index - m[sum]
+//	else store current sum and current index in it.
+// }
+
+//approach if sum of any array is x and half its elements also have sum x then the sum of remaining elements will be 0
+
