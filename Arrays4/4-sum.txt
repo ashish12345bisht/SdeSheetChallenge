@@ -1,0 +1,56 @@
+#include <bits/stdc++.h> 
+string fourSum(vector<int> arr, int target, int n) {
+    // Write your code here.
+    sort(arr.begin(),arr.end());
+    int i=0;
+    int j=1;
+    int left=0;
+    int right=n-1;
+     while(i<n-3 and j<n-2){
+         int t=target-(arr[i]+arr[j]);
+         left=j+1;
+         right=n-1;
+//          cout<<i<<j<<left<<right<<t<<endl;
+         int k;
+         while(left<right){
+//              cout<<i<<j<<left<<right<<endl;
+             if(arr[left]+arr[right]==t){
+//                  cout<<i<<j<<left<<right;
+                 return "Yes";
+             }
+             else if(arr[left]+arr[right]<t){
+                 k=left;
+                 k++;
+                 while(arr[k]==arr[left] and k<right){
+                     k++;
+                 }
+                 left=k;
+             }
+             else{
+                 k=right;
+                 k--;
+                 while(arr[k]==arr[right] and k>left ){
+                     k--;
+                 }
+                 right=k;
+             }
+         }
+         k=j;
+         k++;
+         while(arr[k]==arr[j] and j<n-2){
+             k++;
+         }
+         j=k;
+         if(j>=n-2){
+//              cout<<"hello";
+             k=i;
+             k++;
+             while(arr[k]==arr[i] and k<n-3){
+                 k++;
+             }
+             i=k;
+             j=i+1;
+         }
+     }
+    return "No";
+}
