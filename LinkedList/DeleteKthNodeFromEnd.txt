@@ -1,0 +1,46 @@
+#include <bits/stdc++.h> 
+/****************************************************************
+
+    Following is the class structure of the LinkedListNode class:
+
+    template <typename T>
+    class LinkedListNode
+    {
+    public:
+        T data;
+        LinkedListNode<T> *next;
+        LinkedListNode(T data)
+        {
+            this->data = data;
+            this->next = NULL;
+        }
+    };
+
+*****************************************************************/
+
+LinkedListNode<int>* removeKthNode(LinkedListNode<int> *head, int K)
+{
+    // Write your code here.
+    LinkedListNode<int> *slow=head;
+    LinkedListNode<int> *fast=head;
+    LinkedListNode<int> *dummy=new LinkedListNode<int>(0);
+    dummy->next=slow;
+    LinkedListNode<int> *temp=dummy;
+    int i=0;
+    while(i<K and fast){
+        fast=fast->next;
+        i++;
+    }
+    while(fast!=NULL){
+        slow=slow->next;
+        dummy=dummy->next;
+        fast=fast->next;
+    }
+    if(slow!=NULL){
+        dummy->next=slow->next;
+        delete slow;
+    }
+    
+
+    return temp->next;
+}
