@@ -2,3 +2,4 @@
 2. modular exponentiation - leetcode done coding ninjas left
 3. reverse pairs
 4. 2-sum leetcode done CN left
+5. Xor question (i hate it)
