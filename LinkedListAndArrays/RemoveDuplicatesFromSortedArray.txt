@@ -1,0 +1,11 @@
+// #include <map>
+int removeDuplicates(vector<int> &arr, int n) {
+    int ans=0;
+    int i=0;
+    if(n<=1)return n;
+    while(i<n-1){
+        if(arr[i]!=arr[i+1])ans++;
+        i++;
+    }
+    return ans+1;
+}
