@@ -1,0 +1,32 @@
+#include <algorithm>
+double maximumValue (vector<pair<int, int>>& items, int n, int w)
+{
+    vector<vector<double>> ans;
+    for(double i=0;i<n;i++)
+    {
+        vector<double> v(2);
+        double x = items[i].second;
+        double y = items[i].first;
+        v[0]=x/y;
+        v[1]=i;
+        ans.push_back(v);
+    }
+    sort(ans.begin(),ans.end());
+    reverse(ans.begin(),ans.end());
+    int i=0;
+    double res=0.0;
+    while(i<n and w>0)
+    {
+        if(w<items[ans[i][1]].first)
+        {
+            res+=(w*ans[i][0]);
+            break;
+        }
+        else{
+            res+=(ans[i][0]*(items[ans[i][1]].first));
+        	w-=items[ans[i][1]].first;
+        }
+        i++;
+    }
+    return res;
+}
