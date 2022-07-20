@@ -1,0 +1,19 @@
+int findMinimumCoins(int amount) 
+{
+    // Write your code here
+    vector<int> coins={1, 2, 5, 10, 20, 50, 100, 500, 1000};
+    reverse(coins.begin(),coins.end());
+    int i=0;
+    int count=0;
+    while(amount and i<9){
+        if(coins[i]<=amount){
+            int rem=amount%coins[i];
+//             cout<<"rem "<<rem<<endl;
+            count+=amount/coins[i];
+            amount=rem;
+        }
+            i++;
+    }
+//     cout<<endl;
+    return count;
+}
