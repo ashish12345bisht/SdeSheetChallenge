@@ -1,0 +1,19 @@
+void helper(int i,int sum, vector<int> &num,vector<int> &v){
+    if(i==num.size()){
+        v.push_back(sum);
+        return;
+    }
+    //not pick
+    helper(i+1,sum,num,v);
+    //pick
+    helper(i+1,sum+num[i],num,v);
+    
+}
+vector<int> subsetSum(vector<int> &num)
+{
+    // Write your code here.
+    vector<int> v;
+    helper(0,0,num,v);
+    sort(v.begin(),v.end());
+    return v;
+}
