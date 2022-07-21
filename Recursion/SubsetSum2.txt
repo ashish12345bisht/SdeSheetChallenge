@@ -1,0 +1,19 @@
+#include <algorithm>
+void helper(int i,vector<int> &v, vector<vector<int>> &ans,vector<int> &arr){
+    ans.push_back(v);
+    for(int j=i;j<arr.size();j++){
+        if(i!=j and arr[j]==arr[j-1])continue;
+        v.push_back(arr[j]);
+        helper(j+1,v,ans,arr);
+        v.pop_back();
+    }
+}
+vector<vector<int>> uniqueSubsets(int n, vector<int> &arr)
+{
+    // Write your code here.
+    vector<int> v;
+    vector<vector<int>> ans;
+    sort(arr.begin(),arr.end());
+    helper(0,v,ans,arr);
+    return ans;
+}
