@@ -1,0 +1,17 @@
+#include <map>
+int uniqueElement(vector<int> arr, int n)
+{
+	// Write your code here
+    int i=0;
+    int j=n-2;
+    while(i<=j){
+        int mid=(i+j>>1);
+        if(arr[mid]==arr[mid^1]){
+            i=mid+1;
+        }
+        else{
+            j=mid-1;
+        }
+    }
+    return arr[i];
+}
