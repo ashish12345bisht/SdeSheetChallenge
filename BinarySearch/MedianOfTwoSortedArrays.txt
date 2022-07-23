@@ -1,0 +1,36 @@
+double median(vector<int> a, vector<int> b)
+{
+    // Write your code here.
+    vector<int> v;
+    int i=0;
+    int j=0;
+    while(i<a.size() and j<b.size()){
+//         cout<<a[i]
+        if(a[i]<=b[j]){
+            v.push_back(a[i]);
+            i++;
+        }
+        else{
+            v.push_back(b[j]);
+            j++;
+        }
+    }
+    
+    while(i<a.size()){
+        v.push_back(a[i]);
+        i++;
+    }
+    
+    while(j<b.size()){
+        v.push_back(b[j]);
+        j++;
+    }
+    
+    int s=v.size();
+    if(s%2==0){
+        return ((double)v[s/2]+(double)v[(s/2)-1])/2;
+    }
+    else{
+        return (double)v[(s/2)];
+    }
+}
