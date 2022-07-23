@@ -1,0 +1,31 @@
+bool checker(int row, int col,int matrix[9][9],int target){
+    for(int i=0;i<9;i++){
+        if(matrix[row][i]==target and i!=col)return 0;
+        if(matrix[i][col]==target and i!=row)return 0;
+        if((3*(row/3)+(i/3)!=row) and (3*(col/3)+i%3!=col) and matrix[3*(row/3)+(i/3)][3*(col/3)+i%3]==target)return 0;
+    }
+    return 1;
+}
+bool helper(int matrix[9][9]){
+    for(int i=0;i<9;i++){
+        for(int j=0;j<9;j++){
+            if(matrix[i][j]==0){
+                for(int k=1;k<=9;k++){
+                    if(checker(i,j,matrix,k)){
+                        matrix[i][j]=k;
+                        if(helper(matrix))return 1;
+                        else{
+                            matrix[i][j]=0;
+                        }
+                    }
+                }
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+bool isItSudoku(int matrix[9][9]) {
+    // Write your code here.
+    return helper(matrix);
+}
