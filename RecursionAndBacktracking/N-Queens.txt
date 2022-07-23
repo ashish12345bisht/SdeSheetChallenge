@@ -1,0 +1,46 @@
+bool valid(vector<vector<int>> &board,int row,int col,int n){
+    for(int i=0;i<col;i++){
+        if(board[row][i]==1)return 0;
+    }
+    int i=row-1,j=col-1;
+    while(i>=0 and j>=0){
+        if(board[i][j]==1)return 0;
+        i--;
+        j--;
+    }
+    i=row+1,j=col-1;
+    while(i<n and j>=0){
+        if(board[i][j]==1)return 0;
+        i++;
+        j--;
+    }
+    return 1;
+}
+void helper(int col,vector<vector<int>> &board,int n,vector<vector<int>> &ans){
+    if(col==n){
+        vector<int> v;
+        for(int i=0;i<n;i++){
+            for (int j=0;j<n;j++){
+                v.push_back(board[i][j]);
+            }
+        }
+        ans.push_back(v);
+        return;
+    }
+    for(int row=0;row<n;row++){
+        if(valid(board,row,col,n))
+        {
+            board[row][col]=1;
+            helper(col+1,board,n,ans);
+            board[row][col]=0;
+        }
+    }
+}
+vector<vector<int>> solveNQueens(int n) {
+    // Write your code here.
+    vector<vector<int>> board(n,vector<int>(n,0));
+    vector<vector<int>> ans;
+//     cout<<board.size();
+    helper(0,board,n,ans);
+    return ans;
+}
