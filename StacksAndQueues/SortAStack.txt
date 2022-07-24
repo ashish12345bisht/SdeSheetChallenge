@@ -1,0 +1,15 @@
+#include <vector>
+#include <algorithm>
+void sortStack(stack<int> &stack)
+{
+	// Write your code here
+    vector<int> v;
+    while(!stack.empty()){
+        v.push_back(stack.top());
+        stack.pop();
+    }
+    sort(v.begin(),v.end());
+    for(auto i:v){
+        stack.push(i);
+    }
+}
