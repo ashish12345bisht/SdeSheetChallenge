@@ -1,0 +1,27 @@
+#include <vector>
+#include <algorithm>
+string reverseString(string str)
+{
+    // Write your code here.
+    vector<string> v;
+    string temp="";
+    for(int i=0;i<str.length();i++)
+    {
+        if(str[i]==' ' and temp!=""){
+            v.push_back(temp);
+            temp="";
+        }
+        else if(str[i]!=' '){
+            temp+=str[i];
+        }
+    }
+    v.push_back(temp);
+    reverse(v.begin(),v.end());
+    temp="";
+    for(int i=0;i<v.size();i++){
+        if(v[i]=="" or v[i]==" ")continue;
+        temp+=v[i];
+        temp+=' ';
+    }
+    return temp;
+}
