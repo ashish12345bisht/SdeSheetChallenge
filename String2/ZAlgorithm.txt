@@ -1,0 +1,15 @@
+int zAlgorithm(string s, string p, int n, int m)
+{
+	// Write your code here
+    
+    int l=m;
+    int i=0;
+    int ans=0;
+    while(i<=s.length()-l){
+        if(s.substr(i,l)==p){
+            ans++;
+        }
+        i++;
+    }
+    return ans;
+}
