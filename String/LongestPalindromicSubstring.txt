@@ -1,0 +1,30 @@
+#include <vector>
+string longestPalinSubstring(string str)
+{
+    // Write your code here.
+    int i=0;
+    int j=0;
+    int maxA=0;
+    vector<int> fAns={};
+    while(i<str.length()){
+        char c=str[i];
+        int t=i;
+        int j=i;
+        int ans=0;
+        while(j<str.length() and str[j]==c){
+            j++;
+        }
+        j--;
+        while(str[i]==str[j] and i>=0 and j<str.length()){
+            ans=j-i+1;
+            if(ans>maxA){
+                fAns={i,j};
+            }
+            i--;
+            j++;
+        }
+        maxA=max(maxA,ans);
+        i=t+1;
+    }
+    return str.substr(fAns[0],fAns[1]-fAns[0]+1);
+}
