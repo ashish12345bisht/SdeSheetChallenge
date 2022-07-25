@@ -1,0 +1,13 @@
+vector<int> stringMatch(string &str, string &pat) {
+    // Write your code here
+    int l=pat.length();
+    int i=0;
+    vector<int> ans;
+    while(i<=str.length()-l){
+        if(str.substr(i,l)==pat){
+            ans.push_back(i);
+        }
+        i++;
+    }
+    return ans;
+}
