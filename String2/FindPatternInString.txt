@@ -1,0 +1,15 @@
+bool findPattern(string p, string s)
+{
+    // Write your code here.
+    int l=p.length();
+    int i=0;
+    int ans=0;
+    while(i<=s.length()-l){
+        if(s.substr(i,l)==p){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+
+}
