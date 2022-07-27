@@ -1,0 +1,34 @@
+/**********************************************************
+
+    Following is the Binary Tree Node class structure:
+
+    template <typename T>
+
+    class BinaryTreeNode {
+    public :
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+		
+        BinaryTreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+***********************************************************/
+bool reqF(BinaryTreeNode<int>* p, BinaryTreeNode<int>* q)
+    {
+        if(p==NULL and q==NULL)
+            return 1;
+        if((p==NULL or q==NULL))
+            return 0;
+        if(p->data!=q->data)
+            return 0;
+        return (reqF(p->left,q->left) && reqF(p->right,q->right));
+    }
+bool identicalTrees(BinaryTreeNode<int>* root1, BinaryTreeNode<int>* root2) {
+    // Write your code here. 	 
+     return reqF(root1,root2);
+}
