@@ -30,3 +30,14 @@ public:
 //if n is even sqaure x and divide x by 2
 //if n is odd multiply current x value to ans and reduce n by 1
 // take care of cases when n is negative
+
+//coding ninja question
+int ans=1;
+    while(n>0){
+        if(n&1){    
+            ans = (1LL * ans * (x)%m);   
+        }    
+        x = ( 1LL * (x)%m * (x)%m);           
+        n = n>>1;                         
+    }
+    return ans%m;    
